@@ -15,6 +15,7 @@
 		7FF4C89C289B94D700594D1F /* AppSearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C89B289B94D700594D1F /* AppSearcherTests.swift */; };
 		7FF4C8A6289B94D700594D1F /* AppSearcherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C8A5289B94D700594D1F /* AppSearcherUITests.swift */; };
 		7FF4C8A8289B94D700594D1F /* AppSearcherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C8A7289B94D700594D1F /* AppSearcherUITestsLaunchTests.swift */; };
+		7FF4C8C0289BA48400594D1F /* Networkconfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C8BF289BA48400594D1F /* Networkconfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		7FF4C8A1289B94D700594D1F /* AppSearcherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppSearcherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF4C8A5289B94D700594D1F /* AppSearcherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSearcherUITests.swift; sourceTree = "<group>"; };
 		7FF4C8A7289B94D700594D1F /* AppSearcherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSearcherUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7FF4C8BF289BA48400594D1F /* Networkconfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkconfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,8 +186,17 @@
 		7FF4C8BB289B9C6D00594D1F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7FF4C8BE289B9F8900594D1F /* Networking */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		7FF4C8BE289B9F8900594D1F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7FF4C8BF289BA48400594D1F /* Networkconfiguration.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +332,7 @@
 				7FF4C889289B94D400594D1F /* SearchAppViewController.swift in Sources */,
 				7FF4C885289B94D400594D1F /* AppDelegate.swift in Sources */,
 				7FF4C887289B94D400594D1F /* SceneDelegate.swift in Sources */,
+				7FF4C8C0289BA48400594D1F /* Networkconfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

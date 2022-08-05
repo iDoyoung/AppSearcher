@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F59D7D4289CF577009F3FB9 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F59D7D3289CF577009F3FB9 /* NetworkServiceTests.swift */; };
 		7FF4C885289B94D400594D1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C884289B94D400594D1F /* AppDelegate.swift */; };
 		7FF4C887289B94D400594D1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C886289B94D400594D1F /* SceneDelegate.swift */; };
 		7FF4C889289B94D400594D1F /* SearchAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C888289B94D400594D1F /* SearchAppViewController.swift */; };
@@ -17,6 +18,7 @@
 		7FF4C8A8289B94D700594D1F /* AppSearcherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C8A7289B94D700594D1F /* AppSearcherUITestsLaunchTests.swift */; };
 		7FF4C8C0289BA48400594D1F /* Networkconfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C8BF289BA48400594D1F /* Networkconfiguration.swift */; };
 		7FF4C8C2289BA61700594D1F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C8C1289BA61700594D1F /* Endpoint.swift */; };
+		7FF4C8C4289BF0E600594D1F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C8C3289BF0E600594D1F /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F59D7D3289CF577009F3FB9 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		7FF4C881289B94D400594D1F /* AppSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF4C884289B94D400594D1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FF4C886289B94D400594D1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 		7FF4C8A7289B94D700594D1F /* AppSearcherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSearcherUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7FF4C8BF289BA48400594D1F /* Networkconfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkconfiguration.swift; sourceTree = "<group>"; };
 		7FF4C8C1289BA61700594D1F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		7FF4C8C3289BF0E600594D1F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				7FF4C89B289B94D700594D1F /* AppSearcherTests.swift */,
+				7F59D7D3289CF577009F3FB9 /* NetworkServiceTests.swift */,
 			);
 			path = AppSearcherTests;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 			children = (
 				7FF4C8BF289BA48400594D1F /* Networkconfiguration.swift */,
 				7FF4C8C1289BA61700594D1F /* Endpoint.swift */,
+				7FF4C8C3289BF0E600594D1F /* NetworkService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -336,6 +342,7 @@
 				7FF4C885289B94D400594D1F /* AppDelegate.swift in Sources */,
 				7FF4C887289B94D400594D1F /* SceneDelegate.swift in Sources */,
 				7FF4C8C0289BA48400594D1F /* Networkconfiguration.swift in Sources */,
+				7FF4C8C4289BF0E600594D1F /* NetworkService.swift in Sources */,
 				7FF4C8C2289BA61700594D1F /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F59D7D4289CF577009F3FB9 /* NetworkServiceTests.swift in Sources */,
 				7FF4C89C289B94D700594D1F /* AppSearcherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

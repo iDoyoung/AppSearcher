@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SearchAppDisplayLogic: AnyObject {
+    func displaySuccessSearching()
+}
+
 class SearchAppViewController: UIViewController {
 
     override func viewDidLoad() {

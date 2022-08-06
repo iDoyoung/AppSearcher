@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7F0FF37E289E644700DCDB32 /* SearchAppInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0FF37D289E644700DCDB32 /* SearchAppInteractorTests.swift */; };
+		7F0FF380289E6EF200DCDB32 /* SearchAppPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0FF37F289E6EF200DCDB32 /* SearchAppPresenterTests.swift */; };
 		7F59D7D4289CF577009F3FB9 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F59D7D3289CF577009F3FB9 /* NetworkServiceTests.swift */; };
 		7F59D7D8289D304A009F3FB9 /* SearchedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F59D7D7289D304A009F3FB9 /* SearchedApp.swift */; };
 		7F59D7DC289E36A0009F3FB9 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F59D7DB289E36A0009F3FB9 /* APIEndpoints.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		7F0FF37D289E644700DCDB32 /* SearchAppInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAppInteractorTests.swift; sourceTree = "<group>"; };
+		7F0FF37F289E6EF200DCDB32 /* SearchAppPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAppPresenterTests.swift; sourceTree = "<group>"; };
 		7F59D7D3289CF577009F3FB9 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		7F59D7D7289D304A009F3FB9 /* SearchedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedApp.swift; sourceTree = "<group>"; };
 		7F59D7DB289E36A0009F3FB9 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				7F0FF37D289E644700DCDB32 /* SearchAppInteractorTests.swift */,
+				7F0FF37F289E6EF200DCDB32 /* SearchAppPresenterTests.swift */,
 			);
 			path = SearchApp;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 			files = (
 				7F59D7D4289CF577009F3FB9 /* NetworkServiceTests.swift in Sources */,
 				7F0FF37E289E644700DCDB32 /* SearchAppInteractorTests.swift in Sources */,
+				7F0FF380289E6EF200DCDB32 /* SearchAppPresenterTests.swift in Sources */,
 				7FF4C89C289B94D700594D1F /* AppSearcherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

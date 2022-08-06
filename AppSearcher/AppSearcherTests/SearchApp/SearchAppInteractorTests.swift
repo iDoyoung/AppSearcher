@@ -30,7 +30,7 @@ class SearchAppInteractorTests: XCTestCase {
     //MARK: - Test doubles
     class SearchAppPresenterSpy: SearchAppPresentionLogic {
         var presentCalled = false
-        func present() {
+        func presentFindSearchedApp() {
             presentCalled = true
         }
     }

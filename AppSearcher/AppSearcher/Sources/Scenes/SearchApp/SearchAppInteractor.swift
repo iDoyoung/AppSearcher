@@ -31,7 +31,7 @@ final class SearchAppInteractor: SearchAppBussinessLogic, SearchAppDataStore {
             switch result {
             case .success(let searched):
                 self?.searchedApps = searched
-                self?.presenter?.present()
+                self?.presenter?.presentFindSearchedApp()
             case .failure(let error):
                 switch error {
                 case .noResponse:

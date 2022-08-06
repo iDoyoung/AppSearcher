@@ -8,11 +8,21 @@
 import Foundation
 
 protocol SearchAppPresentionLogic {
-    func present()
+    func presentFindSearchedApp()
 }
 
 final class SearchAppPresenter: SearchAppPresentionLogic {
-    func present() {
-        
+    weak var viewController: SearchAppDisplayLogic?
+    
+    init(_ viewController: SearchAppDisplayLogic) {
+        self.viewController = viewController
+    }
+    
+    func presentFindSearchedApp() {
+        viewController?.displaySuccessSearching()
+    }
+    func presentFailedSearchedApp() {
+    }
+    func presentUnexpectedNetworkError() {
     }
 }

@@ -34,7 +34,7 @@ struct SearchedApp: Decodable {
     let sellerName: String
     let genreIds: [String]
     let primaryGenreName: String
-    let trackId: String
+    let trackId: Int
     let trackName: String
     let bundleId: String
     let version: String
@@ -46,4 +46,5 @@ struct SearchedApp: Decodable {
     let artistName: String
     let genres: [String]
     let userRatingCount: Int
+    let averageUserRating: Double
 }

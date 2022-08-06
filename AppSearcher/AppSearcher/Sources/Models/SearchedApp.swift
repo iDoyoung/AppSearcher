@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AppStoreApp {
+struct SearchedApp {
     let artworkUrl60: String
     let artworkUrl512: String
     let artworkUrl100: String

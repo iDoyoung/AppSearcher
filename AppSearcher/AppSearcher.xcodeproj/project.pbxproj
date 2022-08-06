@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7F59D7D4289CF577009F3FB9 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F59D7D3289CF577009F3FB9 /* NetworkServiceTests.swift */; };
-		7F59D7D8289D304A009F3FB9 /* AppStoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F59D7D7289D304A009F3FB9 /* AppStoreApp.swift */; };
+		7F59D7D8289D304A009F3FB9 /* SearchedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F59D7D7289D304A009F3FB9 /* SearchedApp.swift */; };
+		7F59D7DC289E36A0009F3FB9 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F59D7DB289E36A0009F3FB9 /* APIEndpoints.swift */; };
 		7FF4C885289B94D400594D1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C884289B94D400594D1F /* AppDelegate.swift */; };
 		7FF4C887289B94D400594D1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C886289B94D400594D1F /* SceneDelegate.swift */; };
 		7FF4C889289B94D400594D1F /* SearchAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C888289B94D400594D1F /* SearchAppViewController.swift */; };
@@ -41,7 +42,8 @@
 
 /* Begin PBXFileReference section */
 		7F59D7D3289CF577009F3FB9 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
-		7F59D7D7289D304A009F3FB9 /* AppStoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreApp.swift; sourceTree = "<group>"; };
+		7F59D7D7289D304A009F3FB9 /* SearchedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedApp.swift; sourceTree = "<group>"; };
+		7F59D7DB289E36A0009F3FB9 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		7FF4C881289B94D400594D1F /* AppSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF4C884289B94D400594D1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FF4C886289B94D400594D1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,7 +96,7 @@
 		7F59D7D6289D2C80009F3FB9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7F59D7D7289D304A009F3FB9 /* AppStoreApp.swift */,
+				7F59D7D7289D304A009F3FB9 /* SearchedApp.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,6 +225,7 @@
 				7FF4C8BF289BA48400594D1F /* Networkconfiguration.swift */,
 				7FF4C8C1289BA61700594D1F /* Endpoint.swift */,
 				7FF4C8C3289BF0E600594D1F /* NetworkService.swift */,
+				7F59D7DB289E36A0009F3FB9 /* APIEndpoints.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -360,10 +363,11 @@
 				7FF4C889289B94D400594D1F /* SearchAppViewController.swift in Sources */,
 				7FF4C885289B94D400594D1F /* AppDelegate.swift in Sources */,
 				7FF4C887289B94D400594D1F /* SceneDelegate.swift in Sources */,
-				7F59D7D8289D304A009F3FB9 /* AppStoreApp.swift in Sources */,
+				7F59D7D8289D304A009F3FB9 /* SearchedApp.swift in Sources */,
 				7FF4C8C0289BA48400594D1F /* Networkconfiguration.swift in Sources */,
 				7FF4C8C4289BF0E600594D1F /* NetworkService.swift in Sources */,
 				7FF4C8C2289BA61700594D1F /* Endpoint.swift in Sources */,
+				7F59D7DC289E36A0009F3FB9 /* APIEndpoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

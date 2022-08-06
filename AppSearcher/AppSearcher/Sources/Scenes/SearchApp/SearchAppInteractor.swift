@@ -30,9 +30,10 @@ final class SearchAppInteractor: SearchAppBussinessLogic, SearchAppDataStore {
         searchedAppWorker?.fetchSearchedApps(with: id) { [weak self] result in
             switch result {
             case .success(let searched):
-                self?.searchedApps = searched
+                self?.searchedApps = searched.results
                 self?.presenter?.presentFindSearchedApp()
             case .failure(let error):
+                print(error)
                 switch error {
                 case .noResponse:
                     break

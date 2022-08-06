@@ -8,7 +8,7 @@
 import Foundation
 
 struct APIEndpoints {
-    static func getSearchedApp(with id: String) -> Endpoint<[SearchedApp]> {
+    static func getSearchedApp(with id: String) -> Endpoint<FetchSearchedApps.Response> {
         return Endpoint(path: "lookup", queryParameters: ["id": id])
     }
 }

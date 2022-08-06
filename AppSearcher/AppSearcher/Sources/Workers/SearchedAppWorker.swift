@@ -8,7 +8,7 @@
 import Foundation
 
 class SearchedAppWorker {
-    typealias CompletionHandler = (Result<[SearchedApp], NetworkError>) -> Void
+    typealias CompletionHandler = (Result<FetchSearchedApps.Response, NetworkError>) -> Void
     
     var networkService: NetworkService
     

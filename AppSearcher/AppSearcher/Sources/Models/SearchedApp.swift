@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SearchedApp {
+struct SearchedApp: Decodable {
     let artworkUrl60: String
     let artworkUrl512: String
     let artworkUrl100: String

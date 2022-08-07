@@ -42,7 +42,7 @@ class SearchAppInteractorTests: XCTestCase {
         
         override func fetchSearchedApps(with id: String, completion: @escaping SearchedAppWorker.CompletionHandler) {
             fetchCalled = true
-            isSuccessFetch ? completion(.success([])) : completion(.failure(error!))
+            isSuccessFetch ? completion(.success(FetchSearchedApps.Response(results: []))) : completion(.failure(error!))
         }
     }
     //MARK: - Tests

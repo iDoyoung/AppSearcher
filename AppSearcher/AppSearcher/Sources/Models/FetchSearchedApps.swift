@@ -9,6 +9,6 @@ import Foundation
 
 enum FetchSearchedApps {
     struct Response: Decodable {
-        var results: [SearchedApp]
+        var results: [SearchedApp.Response]
     }
 }

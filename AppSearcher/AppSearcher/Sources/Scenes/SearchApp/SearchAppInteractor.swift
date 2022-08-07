@@ -12,14 +12,14 @@ protocol SearchAppBussinessLogic {
 }
 
 protocol SearchAppDataStore {
-    var searchedApps: [SearchedApp] { get }
+    var searchedApps: [SearchedApp.Response] { get }
 }
 
 final class SearchAppInteractor: SearchAppBussinessLogic, SearchAppDataStore {
     var searchedAppWorker: SearchedAppWorker?
     var presenter: SearchAppPresentionLogic?
     
-    var searchedApps = [SearchedApp]()
+    var searchedApps = [SearchedApp.Response]()
 
     init(searchedAppWorker: SearchedAppWorker, presenter: SearchAppPresentionLogic) {
         self.searchedAppWorker = searchedAppWorker

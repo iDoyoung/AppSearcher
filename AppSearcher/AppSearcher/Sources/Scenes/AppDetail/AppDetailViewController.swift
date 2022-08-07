@@ -7,7 +7,11 @@
 
 import UIKit
 
-class AppDetailViewController: UIViewController {
+protocol AppDetailDisplayLogicProtocol: AnyObject {
+    func displaySearchedApp()
+}
+
+final class AppDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

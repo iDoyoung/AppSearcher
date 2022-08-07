@@ -12,6 +12,9 @@ protocol AppDetailPresentationLogic {
 }
 
 final class AppDetailPresenter: AppDetailPresentationLogic {
+    weak var viewController: AppDetailDisplayLogicProtocol?
+    
     func presentSearched(_ app: SearchedApp.Response) {
+        self.viewController?.displaySearchedApp()
     }
 }

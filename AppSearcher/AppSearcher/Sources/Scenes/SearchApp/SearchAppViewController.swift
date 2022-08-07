@@ -13,17 +13,18 @@ protocol SearchAppDisplayLogic: AnyObject {
 
 class SearchAppViewController: UIViewController {
     var interactor: (SearchAppBussinessLogic&SearchAppDataStore)?
+    var router: SearchAppRoutingLogic?
     //MARK: - UI components property
     var searchController = UISearchController()
     
     //MARK: - Life cyle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setupVC()
+        setupViewController()
     }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupVC()
+        setupViewController()
     }
     override func loadView() {
         super.loadView()
@@ -36,14 +37,19 @@ class SearchAppViewController: UIViewController {
         searchController.searchBar.delegate = self
         setupUIComponents()
     }
+    //MARK: - Setups
     //TODO: - DI 구현시 setupVC() 제거
-    func setupVC() {
+    func setupViewController() {
         let networkConfiguration = NetworkConfiguration(baseURL: URL(string: "http://itunes.apple.com/")!)
         let networkService = NetworkService(configuration: networkConfiguration)
         let worker = SearchedAppWorker(networkService: networkService)
         let presenter = SearchAppPresenter(self)
         let interactor = SearchAppInteractor(searchedAppWorker: worker, presenter: presenter)
+        let router = SearchAppRouter()
+        router.viewController = self
+        router.dataStore = interactor
         self.interactor = interactor
+        self.router = router
     }
     private func setupUIComponents() {
         setupSearchController()
@@ -60,7 +66,7 @@ class SearchAppViewController: UIViewController {
 
 extension SearchAppViewController: SearchAppDisplayLogic {
     func displaySuccessSearching() {
-        print("Success Searcing")
+        router?.routeToAppDetail()
     }
 }
 

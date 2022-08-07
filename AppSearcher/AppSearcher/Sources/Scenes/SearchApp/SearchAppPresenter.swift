@@ -19,7 +19,9 @@ final class SearchAppPresenter: SearchAppPresentionLogic {
     }
     
     func presentFindSearchedApp() {
-        viewController?.displaySuccessSearching()
+        DispatchQueue.main.async {
+            self.viewController?.displaySuccessSearching()
+        }
     }
     func presentFailedSearchedApp() {
     }

@@ -12,9 +12,43 @@ protocol AppDetailDisplayLogicProtocol: AnyObject {
 }
 
 final class AppDetailViewController: UIViewController {
-
+    var interactor: AppDetailInteractor?
+    //MARK: - Life cycle
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setupViewController()
+    }
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupViewController()
+    }
+    override func loadView() {
+        super.loadView()
+        view.backgroundColor = .systemBackground
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    //MARK: - Setups
+    func setupViewController() {
+        let interactor = AppDetailInteractor()
+        let presenter = AppDetailPresenter()
+        presenter.viewController = self
+        interactor.presenter = presenter
+        self.interactor = interactor
+    }
+    private func setupUIComponents() {
+        setupLayoutConstraint()
+    }
+    private func setupLayoutConstraint() {
+        NSLayoutConstraint.activate([
+        ])
+    }
+}
 
+extension AppDetailViewController: AppDetailDisplayLogicProtocol {
+    func displaySearchedApp() {
+        DispatchQueue.main.async {
+        }
+    }
 }

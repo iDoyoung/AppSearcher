@@ -12,7 +12,8 @@ protocol AppDetailDisplayLogicProtocol: AnyObject {
 }
 
 final class AppDetailViewController: UIViewController {
-    var interactor: AppDetailInteractor?
+    var interactor: (AppDetailBussinessLogic&AppDetailDataStore)?
+    var router: (AppDetailRoutingLogice&AppDetailDataPassing)?
     //MARK: - Life cycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -28,14 +29,19 @@ final class AppDetailViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactor?.getSearchedApp()
     }
     //MARK: - Setups
     func setupViewController() {
         let interactor = AppDetailInteractor()
         let presenter = AppDetailPresenter()
+        let router = AppDetailRouter()
         presenter.viewController = self
         interactor.presenter = presenter
         self.interactor = interactor
+        self.router = router
+        router.viewController = self
+        router.dataStore = interactor
     }
     private func setupUIComponents() {
         setupLayoutConstraint()

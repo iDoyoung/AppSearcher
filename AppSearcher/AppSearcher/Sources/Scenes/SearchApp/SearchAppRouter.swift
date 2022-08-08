@@ -21,11 +21,16 @@ final class SearchAppRouter: SearchAppDataPassing, SearchAppRoutingLogic {
     
     func routeToAppDetail() {
         let destinationViewController = AppDetailViewController()
+        var destinationDataStore = destinationViewController.router!.dataStore!
+        passDataToAppDetail(source: dataStore!, &destinationDataStore)
         navigateTo(destinationViewController)
     }
-    
+    //MARK: - Navigation
     func navigateTo(_ destination: UIViewController) {
-        viewController?.show(destination, sender: nil)
+        viewController?.navigationController?.pushViewController(destination, animated: true)
     }
-    
+    //MARK: = Passing data
+    func passDataToAppDetail(source: SearchAppDataStore, _ destination: inout AppDetailDataStore) {
+        destination.searchedApp = source.searchedApps.first
+    }
 }

@@ -17,6 +17,7 @@
 		7F0FF39B289FC4E400DCDB32 /* AppDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0FF39A289FC4E400DCDB32 /* AppDetailInteractorTests.swift */; };
 		7F0FF39D289FD58200DCDB32 /* Seeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0FF39C289FD58200DCDB32 /* Seeds.swift */; };
 		7F0FF39F289FDD6400DCDB32 /* AppDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0FF39E289FDD6400DCDB32 /* AppDetailPresenterTests.swift */; };
+		7F0FF3A1289FF36B00DCDB32 /* AppDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0FF3A0289FF36B00DCDB32 /* AppDetailRouter.swift */; };
 		7F59D7D4289CF577009F3FB9 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F59D7D3289CF577009F3FB9 /* NetworkServiceTests.swift */; };
 		7F59D7D8289D304A009F3FB9 /* SearchedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F59D7D7289D304A009F3FB9 /* SearchedApp.swift */; };
 		7F59D7DC289E36A0009F3FB9 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F59D7DB289E36A0009F3FB9 /* APIEndpoints.swift */; };
@@ -64,6 +65,7 @@
 		7F0FF39A289FC4E400DCDB32 /* AppDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailInteractorTests.swift; sourceTree = "<group>"; };
 		7F0FF39C289FD58200DCDB32 /* Seeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seeds.swift; sourceTree = "<group>"; };
 		7F0FF39E289FDD6400DCDB32 /* AppDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailPresenterTests.swift; sourceTree = "<group>"; };
+		7F0FF3A0289FF36B00DCDB32 /* AppDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailRouter.swift; sourceTree = "<group>"; };
 		7F59D7D3289CF577009F3FB9 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		7F59D7D7289D304A009F3FB9 /* SearchedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedApp.swift; sourceTree = "<group>"; };
 		7F59D7DB289E36A0009F3FB9 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				7F0FF38D289F9DC800DCDB32 /* AppDetailViewController.swift */,
 				7F0FF393289FB67300DCDB32 /* AppDetailInteractor.swift */,
 				7F0FF395289FB93D00DCDB32 /* AppDetailPresenter.swift */,
+				7F0FF3A0289FF36B00DCDB32 /* AppDetailRouter.swift */,
 			);
 			path = AppDetail;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				7F59D7D8289D304A009F3FB9 /* SearchedApp.swift in Sources */,
 				7FF4C8C0289BA48400594D1F /* Networkconfiguration.swift in Sources */,
 				7F0FF384289E851E00DCDB32 /* FetchSearchedApps.swift in Sources */,
+				7F0FF3A1289FF36B00DCDB32 /* AppDetailRouter.swift in Sources */,
 				7FF4C8C4289BF0E600594D1F /* NetworkService.swift in Sources */,
 				7F0FF392289FA82900DCDB32 /* SearchAppRouter.swift in Sources */,
 				7FF4C8C2289BA61700594D1F /* Endpoint.swift in Sources */,

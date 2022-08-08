@@ -51,11 +51,10 @@ enum SearchedApp {
     }
     struct ViewModel {
         struct DisplayedAppDetail {
-          var id: String
-          var date: String
-          var email: String
-          var name: String
-          var total: String
+            let screenshotUrls: [String]
+            let ipadScreenshotUrls: [String]
+            let appletvScreenshotUrls: [String]
+            let description: String
         }
     }
 }

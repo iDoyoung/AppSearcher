@@ -15,6 +15,10 @@ final class AppDetailPresenter: AppDetailPresentationLogic {
     weak var viewController: AppDetailDisplayLogicProtocol?
     
     func presentSearched(_ app: SearchedApp.Response) {
+        let viewModel = SearchedApp.ViewModel.DisplayedAppDetail(screenshotUrls: app.screenshotUrls,
+                                                                 ipadScreenshotUrls: app.ipadScreenshotUrls,
+                                                                 appletvScreenshotUrls: app.appletvScreenshotUrls,
+                                                                 description: app.description)
         self.viewController?.displaySearchedApp()
     }
 }

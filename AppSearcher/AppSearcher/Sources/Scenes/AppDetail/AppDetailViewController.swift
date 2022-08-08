@@ -26,6 +26,13 @@ final class AppDetailViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    private lazy var appContentsStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [appPreviewCollectionView, appDescriptionView])
+        stackView.axis = .vertical
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    private let appDescriptionView = AppDescriptionView()
     private let appPreviewCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -34,6 +41,7 @@ final class AppDetailViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
+    
     //MARK: - Life cycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -67,7 +75,7 @@ final class AppDetailViewController: UIViewController {
     private func setupUIComponents() {
         view.addSubview(scrollView)
         scrollView.addSubview(scrollContentView)
-        scrollContentView.addSubview(appPreviewCollectionView)
+        scrollContentView.addSubview(appContentsStackView)
         setupLayoutConstraint()
         setupCollectionView()
     }
@@ -83,10 +91,10 @@ final class AppDetailViewController: UIViewController {
             scrollContentView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
             scrollContentView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
             appPreviewCollectionView.heightAnchor.constraint(equalToConstant: 400),
-            appPreviewCollectionView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
-            appPreviewCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            appPreviewCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            appPreviewCollectionView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor)
+            appContentsStackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            appContentsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            appContentsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            appContentsStackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor)
         ])
     }
     private func setupCollectionView() {
@@ -101,6 +109,7 @@ extension AppDetailViewController: AppDetailDisplayLogicProtocol {
     func displaySearchedApp(viewModel: SearchedApp.ViewModel.DisplayedAppDetail) {
         DispatchQueue.main.async { [weak self] in
             self?.displayedApp = viewModel
+            self?.appDescriptionView.descriptionLabel.text = viewModel.description
             self?.appPreviewCollectionView.reloadData()
         }
     }

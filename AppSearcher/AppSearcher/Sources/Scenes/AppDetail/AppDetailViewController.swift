@@ -14,6 +14,26 @@ protocol AppDetailDisplayLogicProtocol: AnyObject {
 final class AppDetailViewController: UIViewController {
     var interactor: AppDetailBussinessLogic?
     var router: (AppDetailRoutingLogice&AppDetailDataPassing)?
+    
+    //MARK: - UI compenents property
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    private let scrollContentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    private let appPreviewCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(AppPreviewCollectionViewCell.self, forCellWithReuseIdentifier: AppPreviewCollectionViewCell.reuseIdentifier)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
     //MARK: - Life cycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -29,6 +49,7 @@ final class AppDetailViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUIComponents()
         interactor?.getSearchedApp()
     }
     //MARK: - Setups
@@ -44,17 +65,82 @@ final class AppDetailViewController: UIViewController {
         router.dataStore = interactor
     }
     private func setupUIComponents() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(scrollContentView)
+        scrollContentView.addSubview(appPreviewCollectionView)
         setupLayoutConstraint()
+        setupCollectionView()
     }
     private func setupLayoutConstraint() {
         NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollContentView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor),
+            scrollContentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            scrollContentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
+            scrollContentView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+            scrollContentView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
+            appPreviewCollectionView.heightAnchor.constraint(equalToConstant: 400),
+            appPreviewCollectionView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            appPreviewCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            appPreviewCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            appPreviewCollectionView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor)
         ])
     }
+    private func setupCollectionView() {
+        appPreviewCollectionView.dataSource = self
+        appPreviewCollectionView.delegate = self
+    }
+    //MARK: - Fetched
+    var displayedApp: SearchedApp.ViewModel.DisplayedAppDetail?
 }
 
 extension AppDetailViewController: AppDetailDisplayLogicProtocol {
     func displaySearchedApp(viewModel: SearchedApp.ViewModel.DisplayedAppDetail) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            self?.displayedApp = viewModel
+            self?.appPreviewCollectionView.reloadData()
         }
     }
 }
+
+extension AppDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    //Data source
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let displayedApp = displayedApp else { return 0 }
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            return displayedApp.screenshotUrls.count
+        case .tv:
+            return displayedApp.appletvScreenshotUrls.count
+        default:
+            return displayedApp.ipadScreenshotUrls.count
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppPreviewCollectionViewCell.reuseIdentifier, for: indexPath) as? AppPreviewCollectionViewCell else {
+            fatalError()
+        }
+        var screenShotURL: String
+        if let displayedApp = displayedApp {
+            switch UIDevice.current.userInterfaceIdiom {
+            case .phone:
+                screenShotURL = displayedApp.screenshotUrls[indexPath.item]
+            case .tv:
+                screenShotURL = displayedApp.appletvScreenshotUrls[indexPath.item]
+            default:
+                screenShotURL = displayedApp.ipadScreenshotUrls[indexPath.item]
+            }
+            cell.screenShotImageView.loadImage(url: screenShotURL)
+        }
+        return cell
+    }
+    //Flow layout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 227, height: 400)
+    }
+
+}
+

@@ -19,6 +19,6 @@ final class AppDetailPresenter: AppDetailPresentationLogic {
                                                                  ipadScreenshotUrls: app.ipadScreenshotUrls,
                                                                  appletvScreenshotUrls: app.appletvScreenshotUrls,
                                                                  description: app.description)
-        self.viewController?.displaySearchedApp()
+        self.viewController?.displaySearchedApp(viewModel: viewModel)
     }
 }

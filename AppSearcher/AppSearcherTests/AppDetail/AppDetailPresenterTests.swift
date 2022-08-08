@@ -25,7 +25,7 @@ class AppDetailPresenterTests: XCTestCase {
     class AppDetailDisplayLogicSpy: AppDetailDisplayLogicProtocol {
         var displaySerchedAppCalled = false
         
-        func displaySearchedApp() {
+        func displaySearchedApp(viewModel: SearchedApp.ViewModel.DisplayedAppDetail) {
             displaySerchedAppCalled = true
         }
     }

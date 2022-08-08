@@ -8,11 +8,11 @@
 import UIKit
 
 protocol AppDetailDisplayLogicProtocol: AnyObject {
-    func displaySearchedApp()
+    func displaySearchedApp(viewModel: SearchedApp.ViewModel.DisplayedAppDetail)
 }
 
 final class AppDetailViewController: UIViewController {
-    var interactor: (AppDetailBussinessLogic&AppDetailDataStore)?
+    var interactor: AppDetailBussinessLogic?
     var router: (AppDetailRoutingLogice&AppDetailDataPassing)?
     //MARK: - Life cycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -53,7 +53,7 @@ final class AppDetailViewController: UIViewController {
 }
 
 extension AppDetailViewController: AppDetailDisplayLogicProtocol {
-    func displaySearchedApp() {
+    func displaySearchedApp(viewModel: SearchedApp.ViewModel.DisplayedAppDetail) {
         DispatchQueue.main.async {
         }
     }

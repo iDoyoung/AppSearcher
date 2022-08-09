@@ -51,10 +51,23 @@ enum SearchedApp {
     }
     struct ViewModel {
         struct DisplayedAppDetail {
+            let appName: String
+            let appIconURL: String
             let screenshotUrls: [String]
             let ipadScreenshotUrls: [String]
             let appletvScreenshotUrls: [String]
             let description: String
+            let artistName: String
+            
+            init(_ response: Response) {
+                appName = response.trackName
+                appIconURL = response.artworkUrl100
+                screenshotUrls = response.screenshotUrls
+                ipadScreenshotUrls = response.ipadScreenshotUrls
+                appletvScreenshotUrls = response.appletvScreenshotUrls
+                description = response.description
+                artistName = response.artistName
+            }
         }
     }
 }

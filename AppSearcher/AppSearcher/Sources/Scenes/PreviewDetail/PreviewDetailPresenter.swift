@@ -8,13 +8,13 @@
 import Foundation
 
 protocol PreviewDetailPresentationLogic {
-    func presentPreviewImages(with urls: [String])
+    func presentPreviewImages(with urls: [String], at indexPath: IndexPath?)
 }
 
 final class PreviewDetailPresenter: PreviewDetailPresentationLogic {
     weak var viewController: PreviewDetailDisplayLogicProtocol?
     
-    func presentPreviewImages(with urls: [String]) {
-        viewController?.displayPreviews(with: urls)
+    func presentPreviewImages(with urls: [String], at indexPath: IndexPath?) {
+        viewController?.displayPreviews(with: urls, at: indexPath)
     }
 }

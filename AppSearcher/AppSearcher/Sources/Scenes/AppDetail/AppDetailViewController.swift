@@ -35,7 +35,7 @@ final class AppDetailViewController: UIViewController {
     private let appHeaderView = AppHeaderView()
     private let appInfosView = AppInfosView()
     private let appDescriptionView = AppDescriptionView()
-    private let appPreviewCollectionView: UICollectionView = {
+    let appPreviewCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)

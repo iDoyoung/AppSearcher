@@ -49,5 +49,7 @@ final class AppDetailRouter: AppDetailDataPassing, AppDetailRoutingLogice {
         default:
             desination.previewURLs = searchedApp.ipadScreenshotUrls
         }
+        let selectedItem = viewController?.appPreviewCollectionView.indexPathsForSelectedItems?.first
+        desination.selectedItem = selectedItem
     }
 }

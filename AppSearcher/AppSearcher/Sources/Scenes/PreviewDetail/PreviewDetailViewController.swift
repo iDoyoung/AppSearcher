@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PreviewDetailDisplayLogicProtocol: AnyObject {
-    func displayPreviews(with urls: [String])
+    func displayPreviews(with urls: [String], at indexPath: IndexPath?)
 }
 
 class PreviewDetailViewController: UIViewController {
@@ -86,9 +86,15 @@ class PreviewDetailViewController: UIViewController {
 }
 
 extension PreviewDetailViewController: PreviewDetailDisplayLogicProtocol {
-    func displayPreviews(with urls: [String]) {
+    func displayPreviews(with urls: [String], at indexPath: IndexPath?) {
         previewURLs = urls
         previewColletionView.reloadData()
+        guard let indexPath = indexPath else {
+            return
+        }
+        previewColletionView.performBatchUpdates {
+            previewColletionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+        }
     }
 }
 

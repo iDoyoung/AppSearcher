@@ -37,7 +37,6 @@ final class AppPreviewCollectionViewCell: UICollectionViewCell {
             screenShotImageView.widthAnchor.constraint(equalTo: widthAnchor),
             screenShotImageView.heightAnchor.constraint(equalTo: heightAnchor),
             screenShotImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            screenShotImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             screenShotImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             screenShotImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])

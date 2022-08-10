@@ -9,6 +9,8 @@ import Foundation
 
 protocol SearchAppPresentionLogic {
     func presentFindSearchedApp()
+    func presentFailedSearchedApp()
+    func presentUnexpectedNetworkError()
 }
 
 final class SearchAppPresenter: SearchAppPresentionLogic {
@@ -19,12 +21,12 @@ final class SearchAppPresenter: SearchAppPresentionLogic {
     }
     
     func presentFindSearchedApp() {
-        DispatchQueue.main.async {
-            self.viewController?.displaySuccessSearching()
-        }
+        viewController?.displaySuccessSearching()
     }
     func presentFailedSearchedApp() {
+        viewController?.displayFailedSearching()
     }
     func presentUnexpectedNetworkError() {
+        viewController?.displayUnexpectedNetworkError()
     }
 }

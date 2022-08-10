@@ -13,6 +13,8 @@ protocol SearchAppDataPassing {
 
 protocol SearchAppRoutingLogic {
     func routeToAppDetail()
+    func presentFailedSearchingAlert()
+    func presentUnexpectedNetworkErrorAlert()
 }
 
 final class SearchAppRouter: SearchAppDataPassing, SearchAppRoutingLogic {
@@ -24,6 +26,22 @@ final class SearchAppRouter: SearchAppDataPassing, SearchAppRoutingLogic {
         var destinationDataStore = destinationViewController.router!.dataStore!
         passDataToAppDetail(source: dataStore!, &destinationDataStore)
         navigateTo(destinationViewController)
+    }
+    func presentFailedSearchingAlert() {
+        let alert = UIAlertController(title: "검색 결과가 없습니다.",
+                                      message: "올바른 id 값으로 검색해주세요.",
+                                      preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "확인", style: .cancel)
+        alert.addAction(okayAction)
+        viewController?.present(alert, animated: true)
+    }
+    func presentUnexpectedNetworkErrorAlert() {
+        let alert = UIAlertController(title: "네트워크 오류",
+                                      message: "예기치 못한 네트워크 오류로 검색에 실패했습니다.",
+                                      preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "확인", style: .cancel)
+        alert.addAction(okayAction)
+        viewController?.present(alert, animated: true)
     }
     //MARK: - Navigation
     func navigateTo(_ destination: UIViewController) {

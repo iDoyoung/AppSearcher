@@ -29,9 +29,15 @@ class SearchAppInteractorTests: XCTestCase {
     }
     //MARK: - Test doubles
     class SearchAppPresenterSpy: SearchAppPresentionLogic {
+        
         var presentCalled = false
         func presentFindSearchedApp() {
             presentCalled = true
+        }
+        func presentFailedSearchedApp() {
+        }
+        
+        func presentUnexpectedNetworkError() {
         }
     }
     

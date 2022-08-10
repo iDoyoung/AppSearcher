@@ -9,6 +9,8 @@ import UIKit
 
 protocol SearchAppDisplayLogic: AnyObject {
     func displaySuccessSearching()
+    func displayFailedSearching()
+    func displayUnexpectedNetworkError()
 }
 
 class SearchAppViewController: UIViewController {
@@ -66,7 +68,19 @@ class SearchAppViewController: UIViewController {
 
 extension SearchAppViewController: SearchAppDisplayLogic {
     func displaySuccessSearching() {
-        router?.routeToAppDetail()
+        DispatchQueue.main.async { [weak self] in
+            self?.router?.routeToAppDetail()
+        }
+    }
+    func displayFailedSearching() {
+        DispatchQueue.main.async { [weak self] in
+            self?.router?.presentFailedSearchingAlert()
+        }
+    }
+    func displayUnexpectedNetworkError() {
+        DispatchQueue.main.async { [weak self] in
+            self?.router?.presentUnexpectedNetworkErrorAlert()
+        }
     }
 }
 

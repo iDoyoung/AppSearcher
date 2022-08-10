@@ -28,7 +28,7 @@ final class AppDetailRouter: AppDetailDataPassing, AppDetailRoutingLogice {
         guard let dataStore = dataStore,
               var destinationDataStore = destinationViewController.router?.dataStore else { return }
         passDataToPreviewDetail(source: dataStore, &destinationDataStore)
-        showPreviewDetail(destinationViewController)
+        showPreviewDetail(UINavigationController(rootViewController: destinationViewController))
     }
     //MARK: - Navigation
     func navigateToSearchApp() {

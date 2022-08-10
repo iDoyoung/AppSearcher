@@ -34,8 +34,8 @@ class AppPreviewCollectionViewCell: UICollectionViewCell {
     }
     private func setupLayoutConstraint() {
         NSLayoutConstraint.activate([
-            screenShotImageView.widthAnchor.constraint(equalToConstant: 227),
-            screenShotImageView.heightAnchor.constraint(equalToConstant: 400),
+            screenShotImageView.widthAnchor.constraint(equalTo: widthAnchor),
+            screenShotImageView.heightAnchor.constraint(equalTo: heightAnchor),
             screenShotImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             screenShotImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             screenShotImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

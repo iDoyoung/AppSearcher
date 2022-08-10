@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppDescriptionView: UIView {
+final class AppDescriptionView: UIView {
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.sizeToFit()

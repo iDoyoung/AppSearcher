@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppPreviewCollectionViewCell: UICollectionViewCell {
+final class AppPreviewCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "AppPreviewCollectionViewCellReuseIdentifier"
     
     let screenShotImageView: UIImageView = {

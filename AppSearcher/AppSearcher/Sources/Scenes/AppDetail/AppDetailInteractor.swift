@@ -20,6 +20,9 @@ final class AppDetailInteractor: AppDetailBussinessLogic, AppDetailDataStore {
     var presenter: AppDetailPresentationLogic?
     
     func getSearchedApp() {
-        presenter?.presentSearched(searchedApp!)
+        guard let searchedApp = searchedApp else {
+            return
+        }
+        presenter?.presentSearched(searchedApp)
     }
 }

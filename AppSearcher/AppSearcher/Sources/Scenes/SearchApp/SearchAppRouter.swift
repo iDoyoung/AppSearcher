@@ -23,8 +23,11 @@ final class SearchAppRouter: SearchAppDataPassing, SearchAppRoutingLogic {
     
     func routeToAppDetail() {
         let destinationViewController = AppDetailViewController()
-        var destinationDataStore = destinationViewController.router!.dataStore!
-        passDataToAppDetail(source: dataStore!, &destinationDataStore)
+        guard let dataStore = dataStore,
+              var destinationDataStore = destinationViewController.router?.dataStore else {
+            return
+        }
+        passDataToAppDetail(source: dataStore, &destinationDataStore)
         navigateTo(destinationViewController)
     }
     func presentFailedSearchingAlert() {

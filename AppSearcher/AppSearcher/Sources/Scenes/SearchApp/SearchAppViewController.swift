@@ -13,7 +13,7 @@ protocol SearchAppDisplayLogic: AnyObject {
     func displayUnexpectedNetworkError()
 }
 
-class SearchAppViewController: UIViewController {
+final class SearchAppViewController: UIViewController {
     var interactor: (SearchAppBussinessLogic&SearchAppDataStore)?
     var router: SearchAppRoutingLogic?
     //MARK: - UI components property
@@ -40,7 +40,6 @@ class SearchAppViewController: UIViewController {
         setupUIComponents()
     }
     //MARK: - Setups
-    //TODO: - DI 구현시 setupVC() 제거
     func setupViewController() {
         let networkConfiguration = NetworkConfiguration(baseURL: URL(string: "http://itunes.apple.com/")!)
         let networkService = NetworkService(configuration: networkConfiguration)

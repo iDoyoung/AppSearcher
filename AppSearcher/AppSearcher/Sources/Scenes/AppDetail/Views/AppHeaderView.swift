@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppHeaderView: UIView {
+final class AppHeaderView: UIView {
     private let appIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 20

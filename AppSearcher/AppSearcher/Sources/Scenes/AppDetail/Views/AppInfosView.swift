@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppInfosView: UIView {
+final class AppInfosView: UIView {
     //MARK: - UI Components
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()

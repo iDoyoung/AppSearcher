@@ -11,7 +11,7 @@ protocol PreviewDetailDisplayLogicProtocol: AnyObject {
     func displayPreviews(with urls: [String], at indexPath: IndexPath?)
 }
 
-class PreviewDetailViewController: UIViewController {
+final class PreviewDetailViewController: UIViewController {
     var interactor: PreviewDetailBussinessLogic?
     var router: (PreviewDetailRoutingLogic&PreviewDetailDataPassing)?
     

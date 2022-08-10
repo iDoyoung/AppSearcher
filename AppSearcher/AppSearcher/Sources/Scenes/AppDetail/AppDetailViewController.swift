@@ -27,12 +27,13 @@ final class AppDetailViewController: UIViewController {
         return view
     }()
     private lazy var appContentsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [appHeaderView, appPreviewCollectionView, appDescriptionView])
+        let stackView = UIStackView(arrangedSubviews: [appHeaderView, appInfosView, appPreviewCollectionView, appDescriptionView])
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     private let appHeaderView = AppHeaderView()
+    private let appInfosView = AppInfosView()
     private let appDescriptionView = AppDescriptionView()
     private let appPreviewCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -109,9 +110,9 @@ final class AppDetailViewController: UIViewController {
 extension AppDetailViewController: AppDetailDisplayLogicProtocol {
     func displaySearchedApp(viewModel: SearchedApp.ViewModel.DisplayedAppDetail) {
         DispatchQueue.main.async { [weak self] in
-            print(viewModel)
             self?.displayedApp = viewModel
             self?.appHeaderView.configureUI(with: viewModel)
+            self?.appInfosView.configureUI(with: viewModel)
             self?.appDescriptionView.descriptionLabel.text = viewModel.description
             self?.appPreviewCollectionView.reloadData()
         }

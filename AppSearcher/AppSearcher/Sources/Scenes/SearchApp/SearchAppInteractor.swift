@@ -21,11 +21,6 @@ final class SearchAppInteractor: SearchAppBussinessLogic, SearchAppDataStore {
     
     var searchedApps = [SearchedApp.Response]()
 
-    init(searchedAppWorker: SearchedAppWorker, presenter: SearchAppPresentionLogic) {
-        self.searchedAppWorker = searchedAppWorker
-        self.presenter = presenter
-    }
-    
     func searchApp(with id: String) {
         searchedAppWorker?.fetchSearchedApps(with: id) { [weak self] result in
             switch result {

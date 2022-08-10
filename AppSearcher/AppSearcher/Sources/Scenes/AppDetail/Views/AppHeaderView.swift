@@ -28,11 +28,19 @@ final class AppHeaderView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    private let appCategoryLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .secondaryLabel
+        label.font = .systemFont(ofSize: 15, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     func configureUI(with viewModel: SearchedApp.ViewModel.DisplayedAppDetail) {
         appIconImageView.loadImage(url: viewModel.appIconURL)
         appNameLabel.text = viewModel.appName
         artistNameLabel.text = viewModel.artistName
+        appCategoryLabel.text = viewModel.category
     }
     //MARK: - Init
     override init(frame: CGRect) {
@@ -48,6 +56,7 @@ final class AppHeaderView: UIView {
         addSubview(appIconImageView)
         addSubview(appNameLabel)
         addSubview(artistNameLabel)
+        addSubview(appCategoryLabel)
         setupLayoutConstraint()
     }
     private func setupLayoutConstraint() {
@@ -60,9 +69,12 @@ final class AppHeaderView: UIView {
             appNameLabel.leadingAnchor.constraint(equalTo: appIconImageView.trailingAnchor, constant: 16),
             appNameLabel.topAnchor.constraint(equalTo: topAnchor),
             appNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            artistNameLabel.topAnchor.constraint(equalTo: appNameLabel.bottomAnchor, constant: 8),
+            artistNameLabel.topAnchor.constraint(equalTo: appNameLabel.bottomAnchor),
             artistNameLabel.leadingAnchor.constraint(equalTo: appIconImageView.trailingAnchor, constant: 16),
-            artistNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            artistNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            appCategoryLabel.topAnchor.constraint(equalTo: artistNameLabel.bottomAnchor),
+            appCategoryLabel.leadingAnchor.constraint(equalTo: appIconImageView.trailingAnchor, constant: 16),
+            appCategoryLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
     }
     

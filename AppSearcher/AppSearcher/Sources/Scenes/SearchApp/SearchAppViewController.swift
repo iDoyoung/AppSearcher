@@ -44,8 +44,11 @@ final class SearchAppViewController: UIViewController {
         let networkConfiguration = NetworkConfiguration(baseURL: URL(string: "http://itunes.apple.com/")!)
         let networkService = NetworkService(configuration: networkConfiguration)
         let worker = SearchedAppWorker(networkService: networkService)
-        let presenter = SearchAppPresenter(self)
-        let interactor = SearchAppInteractor(searchedAppWorker: worker, presenter: presenter)
+        let interactor = SearchAppInteractor()
+        let presenter = SearchAppPresenter()
+        interactor.searchedAppWorker = worker
+        interactor.presenter = presenter
+        presenter.viewController = self
         let router = SearchAppRouter()
         router.viewController = self
         router.dataStore = interactor
@@ -53,6 +56,7 @@ final class SearchAppViewController: UIViewController {
         self.router = router
     }
     private func setupUIComponents() {
+        navigationController?.navigationBar.tintColor = .systemOrange
         setupSearchController()
         setupLayoutConstraint()
     }

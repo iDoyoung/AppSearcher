@@ -16,10 +16,6 @@ protocol SearchAppPresentionLogic {
 final class SearchAppPresenter: SearchAppPresentionLogic {
     weak var viewController: SearchAppDisplayLogic?
     
-    init(_ viewController: SearchAppDisplayLogic) {
-        self.viewController = viewController
-    }
-    
     func presentFindSearchedApp() {
         viewController?.displaySuccessSearching()
     }

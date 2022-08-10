@@ -63,6 +63,7 @@ enum SearchedApp {
             let fileSizeMagabytes: String
             let languageCode: String
             let countOfLanguageCode: String
+            let category: String
         }
         
     }

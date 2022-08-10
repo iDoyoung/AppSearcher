@@ -40,7 +40,6 @@
 		7FF4C889289B94D400594D1F /* SearchAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C888289B94D400594D1F /* SearchAppViewController.swift */; };
 		7FF4C88E289B94D600594D1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FF4C88D289B94D600594D1F /* Assets.xcassets */; };
 		7FF4C891289B94D600594D1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FF4C88F289B94D600594D1F /* LaunchScreen.storyboard */; };
-		7FF4C89C289B94D700594D1F /* AppSearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C89B289B94D700594D1F /* AppSearcherTests.swift */; };
 		7FF4C8A6289B94D700594D1F /* AppSearcherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C8A5289B94D700594D1F /* AppSearcherUITests.swift */; };
 		7FF4C8A8289B94D700594D1F /* AppSearcherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C8A7289B94D700594D1F /* AppSearcherUITestsLaunchTests.swift */; };
 		7FF4C8C0289BA48400594D1F /* Networkconfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C8BF289BA48400594D1F /* Networkconfiguration.swift */; };
@@ -102,7 +101,6 @@
 		7FF4C890289B94D600594D1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FF4C892289B94D600594D1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FF4C897289B94D700594D1F /* AppSearcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppSearcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7FF4C89B289B94D700594D1F /* AppSearcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSearcherTests.swift; sourceTree = "<group>"; };
 		7FF4C8A1289B94D700594D1F /* AppSearcherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppSearcherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF4C8A5289B94D700594D1F /* AppSearcherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSearcherUITests.swift; sourceTree = "<group>"; };
 		7FF4C8A7289B94D700594D1F /* AppSearcherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSearcherUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 			children = (
 				7F0FF37C289E642100DCDB32 /* SearchApp */,
 				7F0FF397289FC49700DCDB32 /* AppDetail */,
-				7FF4C89B289B94D700594D1F /* AppSearcherTests.swift */,
 				7F59D7D3289CF577009F3FB9 /* NetworkServiceTests.swift */,
 				7F0FF39C289FD58200DCDB32 /* Seeds.swift */,
 			);
@@ -515,7 +512,6 @@
 				7F0FF39D289FD58200DCDB32 /* Seeds.swift in Sources */,
 				7F0FF37E289E644700DCDB32 /* SearchAppInteractorTests.swift in Sources */,
 				7F0FF380289E6EF200DCDB32 /* SearchAppPresenterTests.swift in Sources */,
-				7FF4C89C289B94D700594D1F /* AppSearcherTests.swift in Sources */,
 				7F0FF3A328A0B55B00DCDB32 /* AppDetailViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

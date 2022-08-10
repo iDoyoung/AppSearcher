@@ -16,7 +16,7 @@ class SearchAppPresenterTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         searchAppDisplayLogicSpy = SearchAppDisplayLogicSpy()
-        sut = SearchAppPresenter(searchAppDisplayLogicSpy)
+        sut = SearchAppPresenter()
     }
     override func tearDownWithError() throws {
         try super.tearDownWithError()
@@ -42,6 +42,8 @@ class SearchAppPresenterTests: XCTestCase {
     //MARK: - Tests
     func test_presentFindSearchedApp_shouldBeCallDisplaySuccessSearchingInSearchAppDisplay() {
         //given
+        sut.viewController = searchAppDisplayLogicSpy
+
         //when
         sut.presentFindSearchedApp()
         //then
@@ -49,6 +51,7 @@ class SearchAppPresenterTests: XCTestCase {
     }
     func test_presentFailedSearchedApp_shouldBeCallDisplayFailedSearching() {
         //given
+        sut.viewController = searchAppDisplayLogicSpy
         //when
         sut.presentFailedSearchedApp()
         //then
@@ -56,6 +59,7 @@ class SearchAppPresenterTests: XCTestCase {
     }
     func test_presentUnexpectedNetworkError_shouldBeCallDisplayUnexpectedNetworkError() {
         //given
+        sut.viewController = searchAppDisplayLogicSpy
         //when
         sut.presentUnexpectedNetworkError()
         //then

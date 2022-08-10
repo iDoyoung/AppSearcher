@@ -22,7 +22,8 @@ final class AppInfosView: UIView {
                                                       fileSizeInfoView])
         stackView.axis = .horizontal
         stackView.distribution = .equalCentering
-        stackView.spacing = 10
+        stackView.backgroundColor = .secondarySystemBackground
+        stackView.spacing = 1
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -125,6 +126,7 @@ private class InfoView: UIView {
         addSubview(titleLabel)
         addSubview(contentLabel)
         addSubview(subContentLabel)
+        backgroundColor = .systemBackground
         setupLayoutConstraint()
     }
     private func setupLayoutConstraint() {

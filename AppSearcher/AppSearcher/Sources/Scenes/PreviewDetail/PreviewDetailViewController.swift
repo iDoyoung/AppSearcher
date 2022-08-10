@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PreviewDetailDisplayLogicProtocol: AnyObject {
-    
+    func displayPreviews(with urls: [String])
 }
 
 class PreviewDetailViewController: UIViewController {
@@ -49,5 +49,6 @@ class PreviewDetailViewController: UIViewController {
 }
 
 extension PreviewDetailViewController: PreviewDetailDisplayLogicProtocol {
-    
+    func displayPreviews(with urls: [String]) {
+    }
 }

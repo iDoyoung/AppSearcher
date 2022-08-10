@@ -8,14 +8,18 @@
 import Foundation
 
 protocol PreviewDetailBussinessLogic {
-    
+    func getPreviewURLs()
 }
 
 protocol PreviewDetailDataStore {
-    var previewURL: [String] { get set }
+    var previewURLs: [String] { get set }
 }
 
 final class PreviewDetailInteractor: PreviewDetailBussinessLogic, PreviewDetailDataStore {
-    var previewURL = [String]()
+    var previewURLs = [String]()
     var presenter: PreviewDetailPresentationLogic?
+    
+    func getPreviewURLs() {
+        presenter?.presentPreviewImages(with: previewURLs)
+    }
 }

@@ -43,11 +43,11 @@ final class AppDetailRouter: AppDetailDataPassing, AppDetailRoutingLogice {
         guard let searchedApp = source.searchedApp else { return }
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
-            desination.previewURL = searchedApp.screenshotUrls
+            desination.previewURLs = searchedApp.screenshotUrls
         case .tv:
-            desination.previewURL = searchedApp.appletvScreenshotUrls
+            desination.previewURLs = searchedApp.appletvScreenshotUrls
         default:
-            desination.previewURL = searchedApp.ipadScreenshotUrls
+            desination.previewURLs = searchedApp.ipadScreenshotUrls
         }
     }
 }

@@ -30,35 +30,61 @@ class SearchAppInteractorTests: XCTestCase {
     //MARK: - Test doubles
     class SearchAppPresenterSpy: SearchAppPresentionLogic {
         
-        var presentCalled = false
+        var presentFindSearchedAppCalled = false
+        var presentFailedSearchedAppCalled = false
+        var presentUnexpectedNetworkErrorCalled = false
+        
         func presentFindSearchedApp() {
-            presentCalled = true
+            presentFindSearchedAppCalled = true
         }
         func presentFailedSearchedApp() {
+            presentFailedSearchedAppCalled = true
         }
         
         func presentUnexpectedNetworkError() {
+            presentUnexpectedNetworkErrorCalled = true
         }
     }
     
     class SearchedAppWorkerSpy: SearchedAppWorker {
         var fetchCalled = false
         var isSuccessFetch = false
+        var results: [SearchedApp.Response]!
         var error: NetworkError?
         
         override func fetchSearchedApps(with id: String, completion: @escaping SearchedAppWorker.CompletionHandler) {
             fetchCalled = true
-            isSuccessFetch ? completion(.success(FetchSearchedApps.Response(results: []))) : completion(.failure(error!))
+            isSuccessFetch ? completion(.success(FetchSearchedApps.Response(results: results))) : completion(.failure(NetworkError.noResponse))
         }
     }
     //MARK: - Tests
-    func test_searchAppIsSuccess_shouldBeAskWorkerAndCalledPresentInPresenter() {
+    func test_searchAppIsSuccess_shouldBeAskWorkerAndPresentFindSearchedAppCalledInPresenter() {
         //given
+        searchedAppWorkerSpy.results = [Seeds.SearchedAppDummy.app]
         searchedAppWorkerSpy.isSuccessFetch = true
         //when
         sut.searchApp(with: "")
         //then
         XCTAssert(searchedAppWorkerSpy.fetchCalled)
-        XCTAssert(searchAppPresenterSpy.presentCalled)
+        XCTAssert(searchAppPresenterSpy.presentFindSearchedAppCalled)
+    }
+    func test_seachAppIsSuccess_shouldBeAskWorkerAndCalledPresentInPresenter_whenResultIsempty() {
+        //given
+        searchedAppWorkerSpy.results = []
+        searchedAppWorkerSpy.isSuccessFetch = true
+        //when
+        sut.searchApp(with: "")
+        //then
+        XCTAssert(searchedAppWorkerSpy.fetchCalled)
+        XCTAssert(searchAppPresenterSpy.presentFailedSearchedAppCalled)
+    }
+    func test_searchAppIsFailedByError_shouldBeAskWorkerAndCalledPresentUnexpectedNetworkError_whenResultIsempty() {
+        //given
+        searchedAppWorkerSpy.isSuccessFetch = false
+        //when
+        sut.searchApp(with: "")
+        //then
+        XCTAssert(searchedAppWorkerSpy.fetchCalled)
+        XCTAssert(searchAppPresenterSpy.presentUnexpectedNetworkErrorCalled)
     }
 }

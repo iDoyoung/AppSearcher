@@ -26,9 +26,17 @@ class SearchAppPresenterTests: XCTestCase {
     //MARK: - Test doubles
     class SearchAppDisplayLogicSpy: SearchAppDisplayLogic {
         var displaySuccessSearchingCalled = false
+        var displayFailedSearchingCalled = false
+        var displayUnexpectedNetworkErrorCalled = false
         
         func displaySuccessSearching() {
             displaySuccessSearchingCalled = true
+        }
+        func displayFailedSearching() {
+            displayFailedSearchingCalled = true
+        }
+        func displayUnexpectedNetworkError() {
+            displayUnexpectedNetworkErrorCalled = true
         }
     }
     //MARK: - Tests
@@ -38,5 +46,19 @@ class SearchAppPresenterTests: XCTestCase {
         sut.presentFindSearchedApp()
         //then
         XCTAssert(searchAppDisplayLogicSpy.displaySuccessSearchingCalled)
+    }
+    func test_presentFailedSearchedApp_shouldBeCallDisplayFailedSearching() {
+        //given
+        //when
+        sut.presentFailedSearchedApp()
+        //then
+        XCTAssert(searchAppDisplayLogicSpy.displayFailedSearchingCalled)
+    }
+    func test_presentUnexpectedNetworkError_shouldBeCallDisplayUnexpectedNetworkError() {
+        //given
+        //when
+        sut.presentUnexpectedNetworkError()
+        //then
+        XCTAssert(searchAppDisplayLogicSpy.displayUnexpectedNetworkErrorCalled)
     }
 }

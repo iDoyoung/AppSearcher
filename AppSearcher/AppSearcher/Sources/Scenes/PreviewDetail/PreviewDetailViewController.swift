@@ -22,6 +22,7 @@ class PreviewDetailViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(AppPreviewCollectionViewCell.self, forCellWithReuseIdentifier: AppPreviewCollectionViewCell.reuseIdentifier)
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.decelerationRate = .fast
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -97,7 +98,7 @@ extension PreviewDetailViewController: PreviewDetailDisplayLogicProtocol {
         }
     }
 }
-
+//MARK: - for Collection View
 extension PreviewDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         previewURLs.count
@@ -118,7 +119,18 @@ extension PreviewDetailViewController: UICollectionViewDataSource, UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+    ///pageing for collection view
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let width = previewColletionView.bounds.width - 30
+        let currentOffset = scrollView.contentOffset.x
+        let pagedIndex: Int
+        if velocity.x > 0 {
+            pagedIndex = Int(ceil(currentOffset / width))
+        } else if velocity.x < 0 {
+            pagedIndex = Int(floor(currentOffset / width))
+        } else {
+            pagedIndex = Int(round(currentOffset / width))
+        }
+        targetContentOffset.pointee = CGPoint(x: CGFloat(pagedIndex) * width, y: 0)
     }
 }

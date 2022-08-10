@@ -18,8 +18,7 @@ class SearchAppInteractorTests: XCTestCase {
         try super.setUpWithError()
         searchAppPresenterSpy = SearchAppPresenterSpy()
         searchedAppWorkerSpy = SearchedAppWorkerSpy(networkService: NetworkService(configuration: NetworkConfiguration(baseURL: URL(string: "https://mock.test.com")!)))
-        sut = SearchAppInteractor(searchedAppWorker: searchedAppWorkerSpy,
-                                  presenter: searchAppPresenterSpy)
+        sut = SearchAppInteractor()
     }
     override func tearDownWithError() throws {
         sut = nil
@@ -60,6 +59,8 @@ class SearchAppInteractorTests: XCTestCase {
     //MARK: - Tests
     func test_searchAppIsSuccess_shouldBeAskWorkerAndPresentFindSearchedAppCalledInPresenter() {
         //given
+        sut.searchedAppWorker = searchedAppWorkerSpy
+        sut.presenter = searchAppPresenterSpy
         searchedAppWorkerSpy.results = [Seeds.SearchedAppDummy.app]
         searchedAppWorkerSpy.isSuccessFetch = true
         //when
@@ -70,6 +71,8 @@ class SearchAppInteractorTests: XCTestCase {
     }
     func test_seachAppIsSuccess_shouldBeAskWorkerAndCalledPresentInPresenter_whenResultIsempty() {
         //given
+        sut.searchedAppWorker = searchedAppWorkerSpy
+        sut.presenter = searchAppPresenterSpy
         searchedAppWorkerSpy.results = []
         searchedAppWorkerSpy.isSuccessFetch = true
         //when
@@ -80,6 +83,8 @@ class SearchAppInteractorTests: XCTestCase {
     }
     func test_searchAppIsFailedByError_shouldBeAskWorkerAndCalledPresentUnexpectedNetworkError_whenResultIsempty() {
         //given
+        sut.searchedAppWorker = searchedAppWorkerSpy
+        sut.presenter = searchAppPresenterSpy
         searchedAppWorkerSpy.isSuccessFetch = false
         //when
         sut.searchApp(with: "")

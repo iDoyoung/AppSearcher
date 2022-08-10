@@ -31,6 +31,10 @@
 		7F59D7EA289E5AE6009F3FB9 /* SearchAppPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F59D7E9289E5AE6009F3FB9 /* SearchAppPresenter.swift */; };
 		7F8456B928A25BC300F5E0CD /* AppHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8456B828A25BC300F5E0CD /* AppHeaderView.swift */; };
 		7F8456BB28A2693700F5E0CD /* AppInfosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8456BA28A2693700F5E0CD /* AppInfosView.swift */; };
+		7F8456BE28A34FFF00F5E0CD /* PreviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8456BD28A34FFF00F5E0CD /* PreviewDetailViewController.swift */; };
+		7F8456C028A3501F00F5E0CD /* PreviewDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8456BF28A3501F00F5E0CD /* PreviewDetailInteractor.swift */; };
+		7F8456C228A3503A00F5E0CD /* PreviewDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8456C128A3503A00F5E0CD /* PreviewDetailPresenter.swift */; };
+		7F8456C428A3504C00F5E0CD /* PreviewDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8456C328A3504C00F5E0CD /* PreviewDetailRouter.swift */; };
 		7FF4C885289B94D400594D1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C884289B94D400594D1F /* AppDelegate.swift */; };
 		7FF4C887289B94D400594D1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C886289B94D400594D1F /* SceneDelegate.swift */; };
 		7FF4C889289B94D400594D1F /* SearchAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4C888289B94D400594D1F /* SearchAppViewController.swift */; };
@@ -86,6 +90,10 @@
 		7F59D7E9289E5AE6009F3FB9 /* SearchAppPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAppPresenter.swift; sourceTree = "<group>"; };
 		7F8456B828A25BC300F5E0CD /* AppHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeaderView.swift; sourceTree = "<group>"; };
 		7F8456BA28A2693700F5E0CD /* AppInfosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfosView.swift; sourceTree = "<group>"; };
+		7F8456BD28A34FFF00F5E0CD /* PreviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDetailViewController.swift; sourceTree = "<group>"; };
+		7F8456BF28A3501F00F5E0CD /* PreviewDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDetailInteractor.swift; sourceTree = "<group>"; };
+		7F8456C128A3503A00F5E0CD /* PreviewDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDetailPresenter.swift; sourceTree = "<group>"; };
+		7F8456C328A3504C00F5E0CD /* PreviewDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDetailRouter.swift; sourceTree = "<group>"; };
 		7FF4C881289B94D400594D1F /* AppSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF4C884289B94D400594D1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FF4C886289B94D400594D1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +195,17 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		7F8456BC28A34FCD00F5E0CD /* PreviewDetail */ = {
+			isa = PBXGroup;
+			children = (
+				7F8456BD28A34FFF00F5E0CD /* PreviewDetailViewController.swift */,
+				7F8456BF28A3501F00F5E0CD /* PreviewDetailInteractor.swift */,
+				7F8456C128A3503A00F5E0CD /* PreviewDetailPresenter.swift */,
+				7F8456C328A3504C00F5E0CD /* PreviewDetailRouter.swift */,
+			);
+			path = PreviewDetail;
+			sourceTree = "<group>";
+		};
 		7FF4C878289B94D400594D1F = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +301,7 @@
 			children = (
 				7FF4C8BA289B9BD600594D1F /* SearchApp */,
 				7F0FF38C289F9CDB00DCDB32 /* AppDetail */,
+				7F8456BC28A34FCD00F5E0CD /* PreviewDetail */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -458,11 +478,13 @@
 				7F59D7E8289E56AC009F3FB9 /* SearchAppInteractor.swift in Sources */,
 				7F0FF394289FB67300DCDB32 /* AppDetailInteractor.swift in Sources */,
 				7F8456BB28A2693700F5E0CD /* AppInfosView.swift in Sources */,
+				7F8456C028A3501F00F5E0CD /* PreviewDetailInteractor.swift in Sources */,
 				7F59D7EA289E5AE6009F3FB9 /* SearchAppPresenter.swift in Sources */,
 				7F46641B28A13CDA0057AF49 /* AppDescriptionView.swift in Sources */,
 				7F1D199B28A10C070096ACAE /* AppPreviewCollectionViewCell.swift in Sources */,
 				7FF4C889289B94D400594D1F /* SearchAppViewController.swift in Sources */,
 				7FF4C885289B94D400594D1F /* AppDelegate.swift in Sources */,
+				7F8456C428A3504C00F5E0CD /* PreviewDetailRouter.swift in Sources */,
 				7F0FF38E289F9DC800DCDB32 /* AppDetailViewController.swift in Sources */,
 				7FF4C887289B94D400594D1F /* SceneDelegate.swift in Sources */,
 				7F1D199F28A11CE90096ACAE /* UIImageView+LoadImage.swift in Sources */,
@@ -471,8 +493,10 @@
 				7F0FF384289E851E00DCDB32 /* FetchSearchedApps.swift in Sources */,
 				7F8456B928A25BC300F5E0CD /* AppHeaderView.swift in Sources */,
 				7F0FF3A1289FF36B00DCDB32 /* AppDetailRouter.swift in Sources */,
+				7F8456BE28A34FFF00F5E0CD /* PreviewDetailViewController.swift in Sources */,
 				7FF4C8C4289BF0E600594D1F /* NetworkService.swift in Sources */,
 				7F1D199D28A11C800096ACAE /* CacheManager.swift in Sources */,
+				7F8456C228A3503A00F5E0CD /* PreviewDetailPresenter.swift in Sources */,
 				7F0FF392289FA82900DCDB32 /* SearchAppRouter.swift in Sources */,
 				7FF4C8C2289BA61700594D1F /* Endpoint.swift in Sources */,
 				7F59D7DE289E3A94009F3FB9 /* SearchedAppWorker.swift in Sources */,

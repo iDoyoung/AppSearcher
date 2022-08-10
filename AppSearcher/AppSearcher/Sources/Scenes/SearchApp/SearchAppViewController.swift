@@ -53,6 +53,7 @@ final class SearchAppViewController: UIViewController {
         self.router = router
     }
     private func setupUIComponents() {
+        navigationController?.navigationBar.tintColor = .systemOrange
         setupSearchController()
         setupLayoutConstraint()
     }

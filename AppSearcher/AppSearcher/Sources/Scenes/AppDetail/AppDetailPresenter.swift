@@ -26,12 +26,13 @@ final class AppDetailPresenter: AppDetailPresentationLogic {
                                                                  contentAdvisoryRating: response.contentAdvisoryRating,
                                                                  fileSizeMagabytes: getMegabyteSize(response.fileSizeBytes),
                                                                  languageCode: getCurrentLanguage(response.languageCodesISO2A),
-                                                                 countOfLanguageCode: countOfAdditionalLanguage(response.languageCodesISO2A))
+                                                                 countOfLanguageCode: countOfAdditionalLanguage(response.languageCodesISO2A),
+                                                                 category: response.primaryGenreName)
         self.viewController?.displaySearchedApp(viewModel: viewModel)
     }
     
     private func getCurrentLanguage(_ languages: [String]) -> String {
-        let currentLanguage = Locale.current.languageCode?.uppercased() ?? ""
+        let currentLanguage = Locale.preferredLanguages.first?.prefix(2).uppercased() ?? ""
         return languages.contains(currentLanguage) ? currentLanguage : languages.first ?? ""
     }
     private func countOfAdditionalLanguage(_ languages: [String]) -> String {

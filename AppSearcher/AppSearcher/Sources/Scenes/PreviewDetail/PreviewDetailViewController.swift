@@ -75,6 +75,7 @@ final class PreviewDetailViewController: UIViewController {
         previewColletionView.delegate = self
     }
     private func setupNavigationBar() {
+        navigationController?.navigationBar.tintColor = .systemOrange
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(dismissViewController))
     }
     //MARK: - Actions

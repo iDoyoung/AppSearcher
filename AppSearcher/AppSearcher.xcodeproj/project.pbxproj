@@ -187,8 +187,8 @@
 		7F59D7D6289D2C80009F3FB9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7F59D7D7289D304A009F3FB9 /* SearchedApp.swift */,
 				7F0FF383289E851E00DCDB32 /* FetchSearchedApps.swift */,
+				7F59D7D7289D304A009F3FB9 /* SearchedApp.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

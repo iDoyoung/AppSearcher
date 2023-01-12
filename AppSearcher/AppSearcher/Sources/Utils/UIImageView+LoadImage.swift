@@ -13,15 +13,15 @@ extension UIImageView {
         
         if let cachedImage = CacheManager.shared.object(forKey: cachedKey) {
             self.image = cachedImage
-        }
-        
-        guard let url = URL(string: url) else { return }
-        DispatchQueue.global().async {
-            guard let data = try? Data(contentsOf: url) else { return }
-            guard let image = UIImage(data: data) else { return }
-            DispatchQueue.main.async {
-                self.image = image
-                CacheManager.shared.setObject(image, forKey: cachedKey)
+        } else {
+            guard let url = URL(string: url) else { return }
+            DispatchQueue.global().async {
+                guard let data = try? Data(contentsOf: url) else { return }
+                guard let image = UIImage(data: data) else { return }
+                DispatchQueue.main.async {
+                    self.image = image
+                    CacheManager.shared.setObject(image, forKey: cachedKey)
+                }
             }
         }
     }

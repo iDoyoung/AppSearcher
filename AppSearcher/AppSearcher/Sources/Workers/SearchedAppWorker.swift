@@ -19,4 +19,13 @@ class SearchedAppWorker {
     func fetchSearchedApps(with id: String, completion: @escaping CompletionHandler) {
         networkService.request(with: APIEndpoints.getSearchedApp(with: id), completion: completion)
     }
+    
+    func fetchSeachedApps(with id: String) async throws -> FetchSearchedApps.Response {
+        do {
+            let result = try await networkService.request(with: APIEndpoints.getSearchedApp(with: id))
+            return result
+        } catch let error {
+            throw error
+        }
+    }
 }

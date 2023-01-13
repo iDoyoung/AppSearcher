@@ -57,6 +57,7 @@ final class NetworkService {
             completion(.failure(NetworkError.urlGeneration))
         }
     }
+    
     func request<E, T>(with endpoint: E, completion: @escaping (Result<T, NetworkError>) -> Void) where T : Decodable, T == E.Response, E: Requestable {
         do {
             let urlRequest = try endpoint.urlRequest(with: configuration)
@@ -83,6 +84,22 @@ final class NetworkService {
             completion(.failure(NetworkError.urlGeneration))
         }
     }
+    
+    //MARK: - Try Async/await
+    func request<E, T>(with endpoint: E) async throws -> T where T: Decodable, T == E.Response, E: Requestable {
+        guard let urlRequest = try? endpoint.urlRequest(with: configuration) else { throw NetworkError.urlGeneration }
+        let (data, response) = try await URLSession.shared.data(for: urlRequest)
+        if let response = response as? HTTPURLResponse, response.statusCode != 200 { throw NetworkError.error(statusCode: response.statusCode, data: data) }
+        let result: T = try decode(data: data)
+        return result
+    }
+    
+    private func decode<T: Decodable>(data: Data) throws -> T {
+        let decoder = JSONDecoder()
+        let result: T = try decoder.decode(T.self, from: data)
+        return result
+    }
+    
     private func decode<T: Decodable>(data: Data?) -> Result<T, NetworkError> {
         let decoder = JSONDecoder()
         do {

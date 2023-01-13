@@ -89,6 +89,8 @@ extension SearchAppViewController: SearchAppDisplayLogic {
 
 extension SearchAppViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        interactor?.searchApp(with: searchBar.text!)
+        Task {
+            await interactor?.searchApp(with: searchBar.text!)
+        }
     }
 }

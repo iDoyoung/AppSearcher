@@ -8,6 +8,7 @@
 import Foundation
 
 protocol SearchAppBussinessLogic {
+    func searchApp(with id: String) async
     func searchApp(with id: String)
 }
 
@@ -34,6 +35,18 @@ final class SearchAppInteractor: SearchAppBussinessLogic, SearchAppDataStore {
             case .failure:
                 self?.presenter?.presentUnexpectedNetworkError()
             }
+        }
+    }
+    
+    func searchApp(with id: String) async {
+        guard let worker = searchedAppWorker else { return }
+        do {
+            let output = try await worker.fetchSeachedApps(with: id)
+            if output.results.isEmpty { presenter?.presentFailedSearchedApp() }
+            searchedApps = output.results
+            presenter?.presentFindSearchedApp()
+        } catch {
+            presenter?.presentUnexpectedNetworkError()
         }
     }
 }
